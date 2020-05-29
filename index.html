@@ -5,23 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Quiz</title>
     <link rel= "stylesheet" href="assets/style.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
 
 </head>
 <body>
     <h1>Two Minutes of JavaScript</h1>
     <div class= "quiz-container">
         <button id= "start">Start</button>
+        <p id= "countdown"></p>
+        <h4 id = "userName"></h4>
+        <h4 id = "userScore"></h4>
         <div id= "quiz"></div>
     </div>
-       
-    <p id= "countdown"></p>
+    <div id="questionDisplay">
+        <h3 id="question"></h3>
+        <button class="userAnswer" id="option-1" data-value=0></button>
+        <button class="userAnswer" id="option-2" data-value=1></button>
+        <button class="userAnswer" id="option-3" data-value=2></button>
+    </div>
+    <div id="resultsContainer">
+        <h3 id = "userScore"></h3>
+        <label>Enter User Initials</label>
+        <input id = "initials"/>
+        <button id= "saveUser">Save User Initials</button>
+    </div>
 
-    <button id="previous">Previous Question</button>
-    <button id="next">Next Question</button>
-    <button id="submit">Submit Quiz</button>
-    <div id="results"></div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src= "./assets/script.js"></script>
     
 </body>
