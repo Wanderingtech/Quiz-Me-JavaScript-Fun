@@ -12,4 +12,4 @@ Contains minimal HTML, basic CSS styling, and dynamically updated JS. Also incor
 
 ## Future Improvements
 
-This is a non functioning code so far. The timer portion will run on "start" button click. But not when joined with the question initiation. I haven't been able to successfully troubleshoot that my quiz questions don't appear on screen at all. I have a tutor appointment scheduled and plan on resubmitting this work when it is complete and running. 
+Updated code 5/28/20 post tutoring session. The JS is much cleaner in appearance and actually runs! Will work on integrating the timer with the quiz. As it is laid out right now, the timer code exists, it's just not connected to anything yet.

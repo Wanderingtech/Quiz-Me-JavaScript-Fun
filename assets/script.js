@@ -1,7 +1,4 @@
-//countdown timer for quiz
 
-const startingMinutes = 2;
-let time = startingMinutes * 60;
 //variables
 // const countdownEl = document.getElementById('countdown');
 var rightAnswer = 0
@@ -10,6 +7,10 @@ var userName = ""
 var highScore = 0
 $("#questionDisplay").hide();
 $("#resultsContainer").hide();
+
+//countdown timer for quiz
+const startingMinutes = 2;
+let time = startingMinutes * 60;
 
 const myQuestions = [
     {
