@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Quiz</title>
-    <link rel= "stylesheet" href="assets/style.css"/>
+    <link rel="stylesheet" href="assets/style.css" />
 
 </head>
+
 <body>
     <h1>Two Minutes of JavaScript</h1>
-    <button id= "start">Start</button>
-    <div class= "quiz-container">
-        <p id= "countdown"></p>
-        <h4 id = "userName"></h4>
-        <h4 id = "userScore"></h4>
-        <div id= "quiz"></div>
+    <button id="start">Start</button>
+    <!--Quiz with timer-->
+    <div class="quiz-container">
+        <p id="countdown"></p>
+        <h4 id="userName"></h4>
+        <h4 id="userScore"></h4>
+        <div id="quiz"></div>
     </div>
+    <!--Questions display-->
     <div id="questionDisplay">
         <h3 id="question"></h3>
         <button class="userAnswer" id="option-1" data-value=0></button>
         <button class="userAnswer" id="option-2" data-value=1></button>
         <button class="userAnswer" id="option-3" data-value=2></button>
     </div>
+
+    <!--Display for quiz results and saves score and initials-->
     <div id="resultsContainer">
-        <h3 id = "userScore"></h3>
+        <h3 id="userScore"></h3>
         <label>Enter User Initials</label>
         <br>
-        <input id = "initials"/>
+        <input id="initials" />
         <br>
-        <button id= "saveUser">Save Your Initials</button>
+        <button id="saveUser">Save Your Initials</button>
     </div>
-    <div id="highScore"></div>
-
-
+    <br>
+    <br>
+    <!--Place to see the high scores-->
+    <div id="highScore">
+    <button id="scores">High Scores</button>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src= "./assets/script.js"></script>
-    
+    <script src="./assets/script.js"></script>
+
 </body>
+
 </html>

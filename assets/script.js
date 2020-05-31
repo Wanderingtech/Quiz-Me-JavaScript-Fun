@@ -14,6 +14,7 @@ let endGame = false;
 
 const countdownEl = $("#countdown")[0];
 
+//Quiz questions
 const myQuestions = [
     {
         question: "JavaScript was published by",
@@ -72,13 +73,19 @@ const myQuestions = [
 ];
 let currentQuestion = 0;
 
+//Questions display on start click and hides the start button
 $("#start").on("click",function(){
-    
+
 $("#questionDisplay").show();
 $("#start").hide()
 buildQuiz()
+
 })
 
+//Checks users choice to be right or wrong
+//Timer takes 10 seconds away for incorrect
+//Stores right and wrong answers
+//if timer runs out or user answers all questions, shows results screen
 $(".userAnswer").on("click",function(){
     var userChoice = $(this).attr("data-value")
     if(userChoice== myQuestions[currentQuestion].correctAnswer){
@@ -99,6 +106,7 @@ $(".userAnswer").on("click",function(){
     }
 })
 
+// Quiz timer that begins on the start click
 $("#start").on("click", function(){
     let timeStop = setInterval(() => {
     if (time <= 0 || endGame){
@@ -107,6 +115,7 @@ $("#start").on("click", function(){
     return clearInterval(timeStop);
     };
     time--
+    //Timer display, adds a zero if less than 10 seconds
     let minutes = Math.floor(time / 60);
     let seconds = time % 60;
     seconds = seconds < 10 ? '0' + seconds : seconds;
@@ -114,18 +123,23 @@ $("#start").on("click", function(){
     }, 1000);
 });
 
+//Saves user initials and score and stores them in local storage
 $("#saveUser").on("click", function(){
-    var user = $("#initials").val()
-    localStorage.setItem("user", user)
-    localStorage.setItem("score", rightAnswer)
-    displayLocalStorage()
+    var user = $("#initials").val();
+    localStorage.setItem("user", user);
+    localStorage.setItem("score", rightAnswer);
+    displayLocalStorage();
 })
+
+//Displays the score and initials from local storage and puts them on the page
 function displayLocalStorage(){
-    userName = localStorage.getItem("user") || "glad you decided to play"
-    highScore = localStorage.getItem("score") || 0
-    $("#userName").html(userName)
-    $("#userScore").html(highScore)
+    userName = localStorage.getItem("user") || "glad you decided to play";
+    highScore = localStorage.getItem("score") || 0;
+    $("#userName").html(userName);
+    $("#userScore").html(highScore);
 }
+
+//Displays how many right and wrong questions on the page
 function displayResults(){
     console.log(rightAnswer, wrongAnswer)
     $("#questionDisplay").hide();
@@ -133,13 +147,12 @@ function displayResults(){
     $("#userScore").html("Right = " + rightAnswer + " Wrong = " + wrongAnswer)
 }
 
+//Runs through the quiz questions
 function buildQuiz() {
-
         $("#question").html(myQuestions[currentQuestion].question)
         for(let i=0;i<3;i++){
             $("#option-"+(i+1)).html(myQuestions[currentQuestion].answers[i])
         }
-    
     }
 
 

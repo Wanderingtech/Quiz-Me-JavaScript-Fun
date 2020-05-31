@@ -15,4 +15,4 @@ This required copious amounts of assistance from my tutor and classmates. Especi
 
 ## Future Improvements
 
-In need of a lot of styling. Also creating the high score component.
+I would like to continue styling and create the high score component. So that when the user clicks high score it displays a list of high scores.
