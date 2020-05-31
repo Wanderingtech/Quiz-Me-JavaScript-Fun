@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Quiz</title>
     <link rel= "stylesheet" href="assets/style.css"/>
-  
 
 </head>
 <body>
     <h1>Two Minutes of JavaScript</h1>
+    <button id= "start">Start</button>
     <div class= "quiz-container">
-        <button id= "start">Start</button>
         <p id= "countdown"></p>
         <h4 id = "userName"></h4>
         <h4 id = "userScore"></h4>
@@ -26,9 +25,13 @@
     <div id="resultsContainer">
         <h3 id = "userScore"></h3>
         <label>Enter User Initials</label>
+        <br>
         <input id = "initials"/>
-        <button id= "saveUser">Save User Initials</button>
+        <br>
+        <button id= "saveUser">Save Your Initials</button>
     </div>
+    <div id="highScore"></div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src= "./assets/script.js"></script>

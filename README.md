@@ -10,6 +10,9 @@ This is wk 4 homework consisting of a timed quiz that has multiple choice questi
 
 Contains minimal HTML, basic CSS styling, and dynamically updated JS. Also incorporated JQuery. 
 
+## Shout-outs
+This required copious amounts of assistance from my tutor and classmates. Especially Keith Billings who was a huge help.
+
 ## Future Improvements
 
-Updated code 5/28/20 post tutoring session. The JS is much cleaner in appearance and actually runs! Will work on integrating the timer with the quiz. As it is laid out right now, the timer code exists, it's just not connected to anything yet.
+In need of a lot of styling. Also creating the high score component.

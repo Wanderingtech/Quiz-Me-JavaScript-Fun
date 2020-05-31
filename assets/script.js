@@ -1,6 +1,5 @@
 
-//variables
-// const countdownEl = document.getElementById('countdown');
+//quiz variables
 var rightAnswer = 0
 var wrongAnswer = 0
 var userName = ""
@@ -8,26 +7,29 @@ var highScore = 0
 $("#questionDisplay").hide();
 $("#resultsContainer").hide();
 
-//countdown timer for quiz
-const startingMinutes = 2;
-let time = startingMinutes * 60;
+// timer utilities
+let timeInMinutes = 2;
+let time = timeInMinutes * 60;
+let endGame = false;
+
+const countdownEl = $("#countdown")[0];
 
 const myQuestions = [
     {
         question: "JavaScript was published by",
         answers: [
             "Twitter",
-             "MySpace",
-             "Facebook"
+            "MySpace",
+            "Facebook"
         ],
         correctAnswer: 0
     },
     {
         question: "To initiate a function, you use",
         answers: [
-             "()",
-             "''",
-             "{}"
+            "()",
+            "''",
+            "{}"
         ],
         correctAnswer: 0
     },
@@ -36,13 +38,14 @@ const myQuestions = [
         answers: [
             "floor.",
             "Math.random",
-             "Function.random"
+            "Function.random"
         ],
         correctAnswer: 1
     },
     {
         question: "What is innerHTML used for?",
-        answers: ["style updates for html",
+        answers: [
+            "style updates for html",
             "a change you make in the html file",
             "making a change in JS that appears in html"
         ],
@@ -69,8 +72,6 @@ const myQuestions = [
 ];
 let currentQuestion = 0;
 
-displayLocalStorage()
-
 $("#start").on("click",function(){
     
 $("#questionDisplay").show();
@@ -80,21 +81,38 @@ buildQuiz()
 
 $(".userAnswer").on("click",function(){
     var userChoice = $(this).attr("data-value")
-    console.log(userChoice)
     if(userChoice== myQuestions[currentQuestion].correctAnswer){
     rightAnswer++
     }
     else{
         wrongAnswer++
+        time -= 10
     }
+
     if(currentQuestion<myQuestions.length-1){
         currentQuestion++;
         buildQuiz()
     }
     else{
+        endGame = true
         displayResults()
     }
 })
+
+$("#start").on("click", function(){
+    let timeStop = setInterval(() => {
+    if (time <= 0 || endGame){
+    alert("Quiz is done!");
+    displayResults();
+    return clearInterval(timeStop);
+    };
+    time--
+    let minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    countdownEl.innerHTML = `${minutes}:${seconds}`;
+    }, 1000);
+});
 
 $("#saveUser").on("click", function(){
     var user = $("#initials").val()
@@ -112,23 +130,7 @@ function displayResults(){
     console.log(rightAnswer, wrongAnswer)
     $("#questionDisplay").hide();
     $("#resultsContainer").show();
-    $("#userScore").html("Wins= " + rightAnswer + "Losses= " + wrongAnswer)
- 
-}
-
-function updateCountdown() {
-    const minutes = Math.floor(time / 60);
-
-    let seconds = time % 60;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-
-    countdownEl.innerHTML = `${minutes}:${seconds}`;
-    time--;
-
-    if (time < 0) {
-        alert("Time's Up!");
-        clearInterval(i);
-    }
+    $("#userScore").html("Right = " + rightAnswer + " Wrong = " + wrongAnswer)
 }
 
 function buildQuiz() {
@@ -136,7 +138,6 @@ function buildQuiz() {
         $("#question").html(myQuestions[currentQuestion].question)
         for(let i=0;i<3;i++){
             $("#option-"+(i+1)).html(myQuestions[currentQuestion].answers[i])
-            console.log("#option-"+(i+1),myQuestions[currentQuestion].answers[i]);
         }
     
     }
