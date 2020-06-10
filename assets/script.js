@@ -13,7 +13,7 @@ let time = timeInMinutes * 60;
 let endGame = false;
 
 const countdownEl = $("#countdown")[0];
-
+displayLocalStorage()
 //Quiz questions
 const myQuestions = [
     {
@@ -126,9 +126,14 @@ $("#start").on("click", function(){
 //Saves user initials and score and stores them in local storage
 $("#saveUser").on("click", function(){
     var user = $("#initials").val();
+    if( highScore < rightAnswer){
     localStorage.setItem("user", user);
     localStorage.setItem("score", rightAnswer);
     displayLocalStorage();
+    }
+    else{
+        alert("Sorry, you didn't beat the previous high score!");
+    }
 })
 
 //Displays the score and initials from local storage and puts them on the page
