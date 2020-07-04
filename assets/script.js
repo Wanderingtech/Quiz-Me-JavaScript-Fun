@@ -19,7 +19,7 @@ const myQuestions = [
     {
         question: "JavaScript was published by",
         answers: [
-            "Twitter",
+            "Netscape",
             "MySpace",
             "Facebook"
         ],
@@ -140,8 +140,8 @@ $("#saveUser").on("click", function(){
 function displayLocalStorage(){
     userName = localStorage.getItem("user") || "glad you decided to play";
     highScore = localStorage.getItem("score") || 0;
-    $("#userName").html(userName);
-    $("#userScore").html(highScore);
+    $("#userName").html(`<h4>Previous User : ${userName}</h4>`);
+    $("#userScore").html(`<h4>Previous HighScore: ${highScore}`);
 }
 
 //Displays how many right and wrong questions on the page
